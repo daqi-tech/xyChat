@@ -1,0 +1,1 @@
+//./bin/mongod --dbpath=/usr/local/mongodb/data/db/ --bind_ip_all

@@ -47,13 +47,13 @@ class Register extends React.Component{
 						checked={this.props.state.type=='genius'}
 						onChange={()=>this.props.handleChange('type','genius')}
 					>
-						牛人
+						YY
 					</RadioItem>
 					<RadioItem
 						checked={this.props.state.type=='boss'}
 						onChange={()=>this.props.handleChange('type','boss')}
 					>
-						BOSS
+						XX
 					</RadioItem>
 					<WhiteSpace />
 					<Button type='primary' onClick={this.handleRegister}>注册 </Button>
