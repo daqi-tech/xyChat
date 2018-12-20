@@ -47,6 +47,7 @@ Router.post('/register', function(req, res){
 		const userModel = new User({user,type,pwd:md5Pwd(pwd)})
 		userModel.save(function(e,d){
 			if (e) {
+				console.log(e);
 				return res.json({code:1,msg:'后端出错了'})
 			}
 			const {user, type, _id} = d

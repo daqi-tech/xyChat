@@ -29,7 +29,7 @@ class GeniusInfo extends React.Component{
 		return (
 			<div>
 				{redirect&&redirect!==path? <Redirect to={this.props.redirectTo}></Redirect> :null}
-				<NavBar mode="dark" >牛人完善信息页</NavBar>
+				<NavBar mode="dark" >YY完善信息页</NavBar>
 				<AvatarSelector 
 					selectAvatar={(imgname)=>{
 						this.setState({

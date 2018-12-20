@@ -31,7 +31,7 @@ class BossInfo extends React.Component{
 		return (
 			<div>
 				{redirect&&redirect!==path? <Redirect to={this.props.redirectTo}></Redirect> :null}
-				<NavBar mode="dark" >BOSS完善信息页</NavBar>
+				<NavBar mode="dark" >XX完善信息页</NavBar>
 				<AvatarSelector 
 					selectAvatar={(imgname)=>{
 						this.setState({
