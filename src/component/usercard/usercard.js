@@ -9,7 +9,7 @@ class UserCard extends React.Component {
 		userlist: PropTypes.array.isRequired
 	}
 	handleClick= v => {
-		this.props.history.push(`/user/${v.user}`)
+		this.props.history.push(`/chat/${v.user}`)
 	}
 	render() {
 		const Header = Card.Header
@@ -28,12 +28,12 @@ class UserCard extends React.Component {
 							extra={<span>{v.title}</span>}
 						></Header>
 						<Body>
-							{v.type == 'boss' ? <div>公司:{v.company}</div> : null}
+							{v.type === 'boss' ? <div>公司:{v.company}</div> : null}
 
 							{v.desc.split('\n').map(d => (
 								<div key={d}>{d}</div>
 							))}
-							{v.type == 'boss' ? <div>薪资:{v.money}</div> : null}
+							{v.type === 'boss' ? <div>薪资:{v.money}</div> : null}
 						</Body>
 					</Card>) : null
 

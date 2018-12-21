@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 // 链接mongo 并且使用xychat这个集合;
-const DB_URL = 'mongodb://172.16.54.186:27017/xychat';
+const DB_URL = 'mongodb://192.168.0.109:27017/xychat';
 mongoose.connect(DB_URL, {
 	useNewUrlParser: true,
 	user: "admin",
