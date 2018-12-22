@@ -18,7 +18,7 @@ function Msg() {
 )
 class Dashboard extends React.Component {
 
-  componentDidUpdate() {
+  componentDidMount() {
     this.props.getMsgList()
     this.props.recvMsg()
   }
@@ -32,7 +32,7 @@ class Dashboard extends React.Component {
         icon: 'boss',
         title: 'YY列表',
         component: Boss,
-        hide: user.type == 'genius'
+        hide: user.type === 'genius'
       },
       {
         path: '/genius',
@@ -40,7 +40,7 @@ class Dashboard extends React.Component {
         icon: 'job',
         title: 'XX列表',
         component: Genius,
-        hide: user.type == 'boss'
+        hide: user.type ==='boss'
       },
       {
         path: '/msg',
@@ -62,7 +62,7 @@ class Dashboard extends React.Component {
     return (
       <div>
         <NavBar className='fixd-header'
-          mode='dard'>{navList.find(v => v.path == pathname) && navList.find(v => v.path == pathname).title}</NavBar>
+          mode='dard'>{navList.find(v => v.path === pathname) && navList.find(v => v.path === pathname).title}</NavBar>
         <div style={{ marginTop: 45 }}>
           <Switch>
             {navList.map(v => (

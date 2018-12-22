@@ -6,7 +6,7 @@ const MSG_LIST = 'MSG_LIST'
 // 读取信息
 const MSG_RECV = 'MSG_RECV'
 // 标示已读
-const MSG_READ = 'MSG_READ'
+// const MSG_READ = 'MSG_READ'
 
 const initState = {
     chatmsg: [],
@@ -16,10 +16,10 @@ const initState = {
 export function chat(state = initState, action) {
     switch (action.type) {
         case MSG_LIST:
-            return { ...state, chatmsg: action.payload, unread: action.payload }
+            return { ...state, chatmsg: action.payload, unread: action.payload.filter(v => !v.read).length }
 
         case MSG_RECV:
-            return { ...state, chatmsg: [...state.chatmsg, action.payloadß] }
+            return { ...state, chatmsg: [...state.chatmsg, action.payload], unread: state.unread + 1 }
         default:
             return state
     }
@@ -32,10 +32,10 @@ function msgList(msgs) {
     }
 }
 
-function msgRecv(msgs) {
+function msgRecv(msg) {
     return {
         type: MSG_RECV,
-        payload: msgs,
+        payload: msg,
     }
 }
 
@@ -48,14 +48,16 @@ export function recvMsg() {
 }
 
 export function sendMsg({ from, to, msg }) {
-    socket.emit('sendmsg', { from, to, msg })
+    return dispatch => {
+        socket.emit('sendmsg', { from, to, msg })
+    }
 }
 
 export function getMsgList() {
     return dispatch => {
         axios.get('/user/getmsglist').then(
             res => {
-                if (res.state === 200 && res.data.code === 0) {
+                if (res.status === 200 && res.data.code === 0) {
                     dispatch(msgList(res.data.msgs))
                 }
             }
