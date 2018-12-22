@@ -12,18 +12,20 @@ class Msg extends React.Component {
         return arr[arr.length - 1]
     }
     render() {
-        // if (!this.props.chat.chatmsg.length) {
-        //     return null
-        // }
+
+        console.log(this.props, '---------------');
+        if (!this.props.chat.chatmsg.length) {
+            return null
+        }
         const userid = this.props.user._id
-        const userinfo = this.props.chat.user
+        const userinfo = this.props.chat.users
         const msgGroup = {}
         this.props.chat.chatmsg.forEach(v => {
             msgGroup[v.chatid] = msgGroup[v.chatid] || []
             msgGroup[v.chatid].push(v)
         });
         const chatList = Object.values(msgGroup)
-        
+
         return (
             <div>
                 <List>
@@ -33,15 +35,14 @@ class Msg extends React.Component {
                         const name = userinfo[targetId]?userinfo[targetId].name:''
                         const avatar = userinfo[targetId]?userinfo[targetId].avatar:''
                         return (
-                            <Item 
+                            <Item
                                 key={lastItem._id}
-                                thumb={require(`../img/${userinfo[targetId].avatar}.png`)}
+                                // thumb={avatar?require(`../img/${avatar}.png`):null}
                             >
                                 {lastItem.content}
                                 <Brief>{name}</Brief>
                             </Item>
                         )
-
                     })}
                 </List>
             </div>

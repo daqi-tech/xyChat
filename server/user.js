@@ -16,20 +16,20 @@ Router.get('/list',function(req, res){
 })
 
 Router.get('/getmsglist',function(req, res){
-	const user = req.cookies.user
+	const user = req.cookies.userid
 	let users = {}
 	User.find({},function(e,userdoc){
-		
 		userdoc.forEach(v=>{
 			users[v._id] = {name:v.user, avatar:v.avatar}
 		})
+    Chat.find({'$or':[{from:user}, {to:user}]},function(err,doc){
+      if(!err){
+        return res.json({code:0, msgs:doc, users:users})
+      }
+    })
 	})
 	// {'$or':[{from:user,to:user}]}
-	Chat.find({'$or':[{from:user,to:user}]},function(err,doc){
-		if(!err){
-			return res.json({code:0, msgs:doc, users:users})
-		}
-	})
+
 })
 Router.post('/update',function(req,res){
 	const userid = req.cookies.userid
@@ -61,7 +61,7 @@ Router.post('/register', function(req, res){
 		if (doc) {
 			return res.json({code:1,msg:'用户名重复'})
 		}
-		
+
 		const userModel = new User({user,type,pwd:md5Pwd(pwd)})
 		userModel.save(function(e,d){
 			if (e) {
@@ -88,7 +88,7 @@ Router.get('/info',function(req, res){
 		}
 	})
 	// 用户有没有cookie
-	
+
 })
 
 function md5Pwd(pwd){
