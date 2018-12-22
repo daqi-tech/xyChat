@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { List } from 'antd-mobile'
 const Item = List.Item
-const Brief = List.Brief
+const Brief = Item.Brief
 
 @connect(
     state => state
@@ -12,8 +12,6 @@ class Msg extends React.Component {
         return arr[arr.length - 1]
     }
     render() {
-
-        console.log(this.props, '---------------');
         if (!this.props.chat.chatmsg.length) {
             return null
         }
@@ -33,11 +31,9 @@ class Msg extends React.Component {
                         const lastItem = this.getLast(v)
                         const targetId = v.from === userid?v.to:v.from
                         const name = userinfo[targetId]?userinfo[targetId].name:''
-                        const avatar = userinfo[targetId]?userinfo[targetId].avatar:''
                         return (
                             <Item
                                 key={lastItem._id}
-                                // thumb={avatar?require(`../img/${avatar}.png`):null}
                             >
                                 {lastItem.content}
                                 <Brief>{name}</Brief>

@@ -18,7 +18,6 @@ export function chat(state = initState, action) {
     switch (action.type) {
         case MSG_LIST:
             return { ...state, chatmsg: action.payload.msgs, users: action.payload.users, unread: action.payload.msgs.filter(v=>!v.read).length}
-
         case MSG_RECV:
             return { ...state, chatmsg: [...state.chatmsg, action.payload], unread:state.unread+1 }
         default:
@@ -42,9 +41,7 @@ function msgRecv(msg) {
 
 export function recvMsg() {
     return dispatch => {
-        console.log(1232312);
         socket.on('recvmsg', function (data) {
-            console.log('recvmsg------', data);
             dispatch(msgRecv(data))
         })
     }
@@ -61,7 +58,6 @@ export function getMsgList() {
         axios.get('/user/getmsglist').then(
             res => {
                 if (res.status === 200 && res.data.code === 0) {
-                    console.log(res, '---------------res----------');
                     dispatch(msgList(res.data.msgs, res.data.users))
                 }
             }
