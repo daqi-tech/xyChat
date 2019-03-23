@@ -1,6 +1,6 @@
 
 import React from 'react'
-import {NavBar,InputItem, TextareaItem, Button} from 'antd-mobile'
+import {NavBar, TextareaItem, Button} from 'antd-mobile'
 import AvatarSelector from '../../component/avatar-selector/avatar-selector'
 import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
@@ -10,14 +10,12 @@ import {update} from '../../redux/user.redux'
 	state=>state.user,
 	{update}
 )
-class BossInfo extends React.Component{
+class XXInfo extends React.Component{
 	constructor(props) {
 		super(props)
 		this.state = {
 			title:'',
 			desc:'',
-			company:'',
-			money:''
 		}
 	}
 	onChange(key,val){
@@ -39,22 +37,12 @@ class BossInfo extends React.Component{
 						})
 					}}
 				></AvatarSelector>
-				<InputItem onChange={(v)=>this.onChange('title',v)}>
-					招聘职位
-				</InputItem>
-				<InputItem onChange={(v)=>this.onChange('company',v)}>
-					公司名称
-				</InputItem>
-				<InputItem onChange={(v)=>this.onChange('money',v)}>
-					职位薪资
-				</InputItem>
 				<TextareaItem
 					onChange={(v)=>this.onChange('desc',v)}
 					rows={3}
 					autoHeight
-					title='职位要求'
+					title='简介'
 				>
-					
 				</TextareaItem>
 				<Button 
 					onClick={()=>{
@@ -66,5 +54,4 @@ class BossInfo extends React.Component{
 		)
 	}
 }
-
-export default BossInfo
+export default XXInfo

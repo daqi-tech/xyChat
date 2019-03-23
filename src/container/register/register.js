@@ -16,7 +16,7 @@ class Register extends React.Component {
 		this.handleRegister = this.handleRegister.bind(this)
 	}
 	componentDidMount() {
-		this.props.handleChange('type', 'genius')
+		this.props.handleChange('type', 'yy')
 	}
 	handleRegister() {
 		this.props.regisger(this.props.state)
@@ -44,19 +44,19 @@ class Register extends React.Component {
 					>确认密码</InputItem>
 					<WhiteSpace />
 					<RadioItem
-						checked={this.props.state.type === 'genius'}
-						onChange={() => this.props.handleChange('type', 'genius')}
+						checked={this.props.state.type === 'yy'}
+						onChange={() => this.props.handleChange('type', 'yy')}
 					>
 						YY
 					</RadioItem>
 					<RadioItem
-						checked={this.props.state.type === 'boss'}
-						onChange={() => this.props.handleChange('type', 'boss')}
+						checked={this.props.state.type === 'xx'}
+						onChange={() => this.props.handleChange('type', 'xx')}
 					>
 						XX
 					</RadioItem>
 					<WhiteSpace />
-					<Button type='primary' onClick={this.handleRegister}>注册 </Button>
+					<Button type='primary' onClick={this.handleRegister}>注册</Button>
 				</List>
 
 

@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import { NavBar } from 'antd-mobile'
 import { Switch, Route } from 'react-router-dom'
 import NavLinkBar from '../navlink/navlink'
-import Boss from '../../component/boss/boss'
-import Genius from '../../component/genius/genius'
+import XX from '../../component/xx/xx'
+import YY from '../../component/yy/yy'
 import User from '../../component/user/user'
 import Msg from '../../component/msg/msg'
 import { getMsgList, recvMsg } from '../../redux/chat.redux'
@@ -14,7 +14,6 @@ import { getMsgList, recvMsg } from '../../redux/chat.redux'
   { getMsgList, recvMsg }
 )
 class Dashboard extends React.Component {
-
   componentDidMount() {
     this.props.getMsgList()
     this.props.recvMsg()
@@ -24,20 +23,20 @@ class Dashboard extends React.Component {
     const user = this.props.user
     const navList = [
       {
-        path: '/boss',
+        path: '/xx',
         text: 'YY',
         icon: 'boss',
         title: 'YY列表',
-        component: Boss,
-        hide: user.type === 'genius'
+        component: XX,
+        hide: user.type === 'yy'
       },
       {
-        path: '/genius',
+        path: '/yy',
         text: 'XX',
         icon: 'job',
         title: 'XX列表',
-        component: Genius,
-        hide: user.type ==='boss'
+        component: YY,
+        hide: user.type ==='xx'
       },
       {
         path: '/msg',
@@ -54,8 +53,6 @@ class Dashboard extends React.Component {
         component: User
       }
     ]
-
-
     return (
       <div>
         <NavBar className='fixd-header'
@@ -67,15 +64,10 @@ class Dashboard extends React.Component {
             ))}
           </Switch>
         </div>
-
         <NavLinkBar data={navList}></NavLinkBar>
-
       </div>
     )
-
-
   }
-
 }
 
 export default Dashboard
