@@ -34,7 +34,7 @@ Router.get('/getmsglist',function(req, res){
 Router.post('/update',function(req,res){
 	const userid = req.cookies.userid
 	if (!userid) {
-		return json.dumps({code:1})
+		return res.json.dumps({code:1})
 	}
 	const body = req.body
 	User.findByIdAndUpdate(userid,body,function(err,doc){
