@@ -12,9 +12,6 @@ const models = {
 		// 简介
 		'desc': { 'type': String },
 		'title': { 'type': String },
-		// 如果你是XX 还有两个字段
-		'company': { 'type': String },
-		'money': { 'type': String }
 	},
 	chat: {
 		'chatid':{'type':String, require:true},

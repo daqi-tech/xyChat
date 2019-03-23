@@ -34,7 +34,6 @@ class User extends React.Component{
 				<Result
 					img={<img src={require(`../img/${props.avatar}.png`)} style={{width:50}} alt="" />}
 					title={props.user}
-					message={props.type==='boss'?props.company:null}
 				/>
 				
 				<List renderHeader={()=>'简介'}>
@@ -43,7 +42,6 @@ class User extends React.Component{
 					>
 						{props.title}
 						{props.desc.split('\n').map(v=><Brief key={v}>{v}</Brief>)}
-						{props.money?<Brief>薪资:{props.money}</Brief>:null}
 					</Item>
 					
 				</List>

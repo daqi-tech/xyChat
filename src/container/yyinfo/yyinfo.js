@@ -1,6 +1,6 @@
 
 import React from 'react'
-import {NavBar,InputItem, TextareaItem, Button} from 'antd-mobile'
+import {NavBar, TextareaItem, Button} from 'antd-mobile'
 import AvatarSelector from '../../component/avatar-selector/avatar-selector'
 import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
@@ -10,7 +10,7 @@ import {update} from '../../redux/user.redux'
 	state=>state.user,
 	{update}
 )
-class GeniusInfo extends React.Component{
+class YYInfo extends React.Component{
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -37,14 +37,11 @@ class GeniusInfo extends React.Component{
 						})
 					}}
 				></AvatarSelector>
-				<InputItem onChange={(v)=>this.onChange('title',v)}>
-					求职岗位
-				</InputItem>
 				<TextareaItem
 					onChange={(v)=>this.onChange('desc',v)}
 					rows={3}
 					autoHeight
-					title='个人见解'
+					title='简介'
 				>
 				</TextareaItem>
 				<Button 
@@ -58,4 +55,4 @@ class GeniusInfo extends React.Component{
 	}
 }
 
-export default GeniusInfo
+export default YYInfo
