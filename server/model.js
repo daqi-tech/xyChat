@@ -1,6 +1,6 @@
-import {DB_URL, DB_OPTION} from '../config/dbConfig';
 const mongoose = require('mongoose');
-mongoose.connect(DB_URL, DB_OPTION)
+const {DB_URL, DB_OPTION} =  require('../config/dbConfig');
+mongoose.connect(DB_URL, DB_OPTION);
 
 const models = {
 	user: {
