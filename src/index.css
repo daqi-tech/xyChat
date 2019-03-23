@@ -15,9 +15,16 @@
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 100;
 }
 .page-content{
   padding:45px 5px;
+}
+
+#chat-page{
+  height: 100%;
+  padding-top: 45px;
+  padding-bottom: 100px;
 }
 
 #chat-page .chat-me .am-list-extra{
@@ -29,7 +36,7 @@
 }
 .stick-footer{
   z-index: 10;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width:100%;
 }
