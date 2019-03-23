@@ -1,16 +1,6 @@
+import {DB_URL, DB_OPTION} from '../config/dbConfig';
 const mongoose = require('mongoose');
-// 链接mongo 并且使用xychat这个集合;
-const DB_URL = 'mongodb://192.168.0.110:27017/xychat';
-mongoose.connect(DB_URL, {
-	useNewUrlParser: true,
-	user: "admin",
-	pass: "bzt_2018",
-	auth: {
-		authdb: 'admin',
-		user: "admin",
-		pass: "bzt_2018",
-	}
-})
+mongoose.connect(DB_URL, DB_OPTION)
 
 const models = {
 	user: {

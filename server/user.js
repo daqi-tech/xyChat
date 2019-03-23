@@ -92,7 +92,7 @@ Router.get('/info',function(req, res){
 })
 
 function md5Pwd(pwd){
-	const salt = 'imooc_is_good_3957x8yza6!@#IUHJh~~'
+	const salt = 'xyChat2019gogo!@#IUHJh~~'
 	return utils.md5(utils.md5(pwd+salt))
 }
 

@@ -4,12 +4,12 @@ import { List, InputItem, Radio, WhiteSpace, Button } from 'antd-mobile'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { regisger } from '../../redux/user.redux'
-import imoocForm from '../../component/imooc-form/imooc-form'
+import loginForm from '../../component/loginForm/loginForm'
 @connect(
 	state => state.user,
 	{ regisger }
 )
-@imoocForm
+@loginForm
 class Register extends React.Component {
 	constructor(props) {
 		super(props)
