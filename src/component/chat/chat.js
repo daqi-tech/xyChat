@@ -43,6 +43,7 @@ class Chat extends React.Component {
                      mode="dark"
                      icon={<Icon type="left" />}
                      onLeftClick={() =>this.props.history.goBack()}
+                     className='fixd-header'
                 >
                     {users[userid].name}
                 </NavBar>
