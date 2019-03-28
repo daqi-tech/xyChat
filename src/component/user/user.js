@@ -15,7 +15,6 @@ class User extends React.Component{
 	}
 	logout(){
 		const alert = Modal.alert
-
 		alert('注销', '确认退出登录吗???', [
 		      { text: '取消', onPress: () => console.log('cancel') },
 		      { text: '确认', onPress: () => {
@@ -28,7 +27,6 @@ class User extends React.Component{
 		const props = this.props
 		const Item = List.Item
 		const Brief = Item.Brief
-		console.log(props)
 		return props.user?(
 			<div>
 				<Result

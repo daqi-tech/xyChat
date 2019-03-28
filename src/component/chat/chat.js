@@ -36,6 +36,7 @@ class Chat extends React.Component {
     render() {
         const userid = this.props.match.params.user
         const users = this.props.chat.users
+        const chatmsg = this.props.chat.chatmsg
         if(!users[userid]) return null
         return (
             <div id='chat-page'>
@@ -47,7 +48,7 @@ class Chat extends React.Component {
                 >
                     {users[userid].name}
                 </NavBar>
-                {this.props.chat.chatmsg.map(v => {
+                {chatmsg.map(v => {
                    // const avatar = require(`../img/${users[v.from].avatar}.png`)
                     return v.from === userid ? (
                         <List key={v._id}>
